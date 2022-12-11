@@ -5,16 +5,18 @@ import Author from "./pages/Author";
 import ItemDetails from "./pages/ItemDetails";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import Scroll from "./components/UI/Scroll";
 
 function App() {
   return (
     <Router>
+      <Scroll></Scroll>
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/explore" element={<Explore />} />
-        <Route path="/author" element={<Author />} />
-        <Route path="/item-details" element={<ItemDetails />} />
+        <Route path="/author/:id" element={<Author />} />
+        <Route path="/item-details/:id" element={<ItemDetails />} />
       </Routes>
       <Footer />
     </Router>

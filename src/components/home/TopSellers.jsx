@@ -1,8 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
+import axios from "axios";
+import { useEffect } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const TopSellers = () => {
+  const navigate = useNavigate()
+  const [loading, setLoading] = useState(true)
+const [sellers, setSellers] = useState([])
+async function fetchSellers() {
+  const {data} = await axios.get('https://us-central1-nft-cloud-functions.cloudfunctions.net/topSellers')
+setSellers(data)
+setLoading(false)
+}
+useEffect(() => {
+  fetchSellers()
+},[])
+function redirect(event) {
+  navigate(`/author/${event}`)
+}
   return (
     <section id="section-popular" className="pb-5">
       <div className="container">
@@ -15,27 +33,58 @@ const TopSellers = () => {
           </div>
           <div className="col-md-12">
             <ol className="author_list">
-              {new Array(12).fill(0).map((_, index) => (
-                <li key={index}>
-                  <div className="author_list_pp">
-                    <Link to="/author">
+              {loading === false ?
+
+                <>
+              {sellers.map((sellers) => (
+                <li data-aos="fade-left"
+                data-aos-offset="200"
+                data-aos-delay="200">
+                  <div data-aos="zoom-out"
+    data-aos-offset="200"
+    data-aos-delay="500"className="author_list_pp">
+                    <a className="cursor" onClick={(e) => redirect(sellers.authorId)} to="/author">
                       <img
                         className="lazy pp-author"
-                        src={AuthorImage}
+                        src={sellers.authorImage}
                         alt=""
-                      />
+                        />
                       <i className="fa fa-check"></i>
-                    </Link>
+                    </a>
                   </div>
                   <div className="author_list_info">
-                    <Link to="/author">Monica Lucas</Link>
-                    <span>2.1 ETH</span>
+                    <a className="cursor" onClick={(e) => redirect(sellers.authorId)} to="/author">{sellers.authorName}</a>
+                    <span>{sellers.price} ETH</span>
                   </div>
                 </li>
               ))}
+              </>  :
+              new Array(12).fill(0).map((element) => (
+                <>
+                <div className="col-md-12">
+<ol className="author__list--skeleton">
+
+                <li className="skeleton__list">
+                <div className="author_list_pp author--skeleton">
+                <div className="author__img--skeleton">
+               
+                </div>
+                </div>
+                <div className="author_list_info author__info--skeleton">
+                <div className="author__name--skeleton skeleton"></div>
+                <div className="author__price--skeleton skeleton"></div>
+                </div>
+                </li>
+</ol>
+                          </div>
+                </>
+              ))
+              
+                
+            }
             </ol>
-          </div>
-        </div>
+            </div>
+            </div>
       </div>
     </section>
   );

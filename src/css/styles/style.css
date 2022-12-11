@@ -12397,7 +12397,40 @@ a.read_more i {
   -moz-animation: blink 0.7s infinite;
   animation: blink 0.7s infinite;
 }
-
+.profilepic {
+  transition: all 300ms ease-in;
+  cursor: pointer;
+}
+.profilepic:hover {
+  border: 2px solid rgba(var(--primary-color-rgb), 0) ;
+  transform: scale(0.95);
+}
+.cursor {
+  cursor: pointer;
+}
+.author__pp--skeleton {
+width: 80px;
+height: 80px;
+background-color: rgb(204, 204, 204);
+border-radius: 50%;
+margin-right: 40px;
+}
+.author__skeleton--wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+.profile__name--skeleton {
+  height: 19px;
+  width: 150px;
+}
+.profile__username--skeleton {
+  height: 17px;
+  width: 100px;
+}
+.profile__wallet--skeleton {
+  height: 15px;
+  width: 200px;
+}
 @keyframes blink {
   0% {
     opacity: 1;
@@ -13183,16 +13216,7 @@ a.read_more i {
   margin-bottom: 10px;
   width: 279px;
 }
-@media (max-width:820px) {
-  .nft_coll {
-    width: 460px;
-  }
-}
-@media (max-width:560px) {
-  .nft_coll {
-    width: 100%
-  }
-}
+
 .nft_skeleton {
   display: flex;
   align-items: center;
@@ -13411,6 +13435,97 @@ a.read_more i {
   color: #1a1b1e;
 }
 
+.author__img--skeleton {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(204, 204, 204);
+border-radius: 100%;
+
+
+}
+.author__list--skeleton {
+  -moz-column-count: 4;
+  -moz-column-gap: 20px;
+  -webkit-column-count: 4;
+  -webkit-column-gap: 20px;
+  column-count: 4;
+  column-gap: 20px;
+  display: flex;
+}
+.author__skeleton {
+  margin-top: 2px;
+  position: absolute;
+  display: inline-block;
+  width: 50px;
+  height: auto;
+  z-index: 10;
+}
+.author__info--skeleton {
+  display: flex;
+  flex-direction: column;
+  margin-left: 65px;
+  align-items: start;
+  justify-content: start;
+}
+
+.author__name--skeleton {
+  width: 100px;
+  height: 19px;
+  text-align: left;
+}
+.author__price--skeleton {
+  width: 50px;
+  height: 19px;
+  text-align: left;
+}
+.explore__skeleton {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+}
+.explore__skeleton--wrap {
+  margin: 12px 12px;
+}
+.itemDetails__skeleton--wrapper {
+  display: flex;
+  width: 100%;
+  height: 600px;
+}
+.itemDetails__skeleton--img {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(204, 204, 204);
+  max-width: 800px;
+  max-height: 1000px;
+
+  
+
+}
+.itemDetails__skeleton--info {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.itemDetails__skeleton--title {
+  height: 23px;
+  width: 260px;
+  margin-bottom: 0;
+}
+.itemDetails__skeleton--likes {
+  height: 15px;
+  width: 100px;
+  margin: 16px 0;
+}
+.itemDetails__skeleton--para {
+  height: 60px;
+  width: 400px;
+}
+.itemDetails__img--wrapper {
+  width: 50%;
+  height: 100%;
+  margin-right: 48px;
+}
 .coll_list_pp {
   position: absolute;
   display: inline-block;
@@ -13420,6 +13535,9 @@ a.read_more i {
   margin-top: -12px;
   z-index: 10;
   left: 0;
+}
+.skeleton__list  {
+  margin: 0;
 }
 
 .rtl .coll_list_pp {
@@ -13677,7 +13795,9 @@ a.read_more i {
   -webkit-border-radius: 15px;
   margin-bottom: 25px;
   background: #ffffff;
+  width: 300px;
 }
+
 
 .nft__item.style-2,
 .dark-scheme .nft__item.style-2 {
@@ -13709,7 +13829,17 @@ a.read_more i {
   transform: scale(1.03);
 }
 
+
 .nft__item_wrap {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 350px;
+}
+.nft__item--skeleton {
   width: 100%;
   text-align: center;
   display: flex;
@@ -13726,7 +13856,7 @@ a.read_more i {
 
 .nft__item img {
   width: 100%;
-  height: auto !important;
+  height: auto;
   border-radius: 8px;
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
@@ -15484,6 +15614,27 @@ img {
     transform: rotate(360deg);
   }
 }
+@media (max-width:820px) {
+  .nft_coll {
+    width: 460px;
+
+  }
+  .nft__item{
+    width: 480px;
+  }
+  .nft2 {
+    height: 340px !important;
+  }
+}
+@media (max-width:560px) {
+  .nft_coll {
+    width: 100%
+  }
+  .nft__item{
+    width: 100%;
+    height: 100% !important;
+  }
+}
 
 /* ================================================== */
 
@@ -16555,6 +16706,7 @@ img {
     top: 22.5%;
   }
 }
+
 
 /* -------------------------------------------------- 
     design for 480px
