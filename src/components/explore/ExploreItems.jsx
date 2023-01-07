@@ -97,7 +97,7 @@ console.log(number);
             </div>
             <div className="nft__item_info">
               <a onClick={(e) => reroute(items.nftId)} to="/item-details">
-                <h4>{items.title}</h4>
+                <h4 className="explore__title">{items.title}</h4>
               </a>
               <div className="nft__item_price">{items.price} ETH</div>
               <div className="nft__item_like">
